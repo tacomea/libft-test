@@ -1,4 +1,14 @@
-TEST_F(LibftTestPart2, putnbr_fd)
+#include "tests.h"
+
+class putnbr_fd_class : public ::testing::Test {
+protected:
+	virtual void SetUp(){
+	}
+	virtual void TearDown(){
+	}
+};
+
+TEST_F(putnbr_fd_class, putnbr_fd)
 {
 	testing::internal::CaptureStdout();
 	ft_putnbr_fd(2147483647, 1);
