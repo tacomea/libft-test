@@ -11,6 +11,7 @@ protected:
 
 TEST_F(memchr_class, memchr) {
 	char test[STRSIZE];
+	strcpy(test, "0123456789");
 
 	JUDGE_EQ_STR_3(memchr, test, test, '3', 2);    
     JUDGE_EQ_STR_3(memchr, test, test, '3', 5);    
