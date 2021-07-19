@@ -401,30 +401,9 @@ TEST_F(LibftTestPart2, putstr_fd)
     EXPECT_STREQ("Cursus", testing::internal::GetCapturedStderr().c_str());
 }
 
-TEST_F(LibftTestPart2, putendl_fd)
-{
-    strcpy(test, "42tokyo");
-    testing::internal::CaptureStdout();
-    ft_putendl_fd(test, 1);
-    EXPECT_STREQ("42tokyo\n", testing::internal::GetCapturedStdout().c_str());
-    strcpy(test, "Cursus");
-    testing::internal::CaptureStderr();
-    ft_putendl_fd(test, 2);
-    EXPECT_STREQ("Cursus\n", testing::internal::GetCapturedStderr().c_str());
-}
 
-TEST_F(LibftTestPart2, putnbr_fd)
-{
-    testing::internal::CaptureStdout();
-    ft_putnbr_fd(2147483647, 1);
-    EXPECT_STREQ("2147483647", testing::internal::GetCapturedStdout().c_str());
-    testing::internal::CaptureStdout();
-    ft_putnbr_fd(0, 1);
-    EXPECT_STREQ("0", testing::internal::GetCapturedStdout().c_str());
-    testing::internal::CaptureStderr();
-    ft_putnbr_fd(-2147483648, 2);
-    EXPECT_STREQ("-2147483648", testing::internal::GetCapturedStderr().c_str());
-}
+
+
 
 // --------------------------------------------------------------------
 // |                                                                   |        
