@@ -20,4 +20,5 @@ TEST_F(bzero_class, bzero) {
 	// test 3
 	EXPECT_EQ(tab[1], 'a');
 	system("leaks a.out");
+	LEAKS_CONFIRM
 }

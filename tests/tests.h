@@ -7,6 +7,9 @@ extern "C" {
 #include "libft.h"
 #include <climits>
 }
+
+#define STRSIZE 42 
+
 #define JUDGE_EQ(name, val) \
     EXPECT_EQ(name(val), ft_ ## name(val)); \
 

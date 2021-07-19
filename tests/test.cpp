@@ -325,70 +325,70 @@ TEST_F(LibftTestPart2, substr)
 // |                                                                   |
 // --------------------------------------------------------------------
 
-// class LibftTestBonus : public ::testing::Test {
-// protected:
-//     t_list  *test1;
-//     t_list  *test2;
-//     t_list  *test3;
-//     char    content[STRSIZE];
-//     virtual void SetUp(){
-//     }
-//     virtual void TearDown(){
-//     }
-// };
+class LibftTestBonus : public ::testing::Test {
+protected:
+    t_list  *test1;
+    t_list  *test2;
+    t_list  *test3;
+    char    content[STRSIZE];
+    virtual void SetUp(){
+    }
+    virtual void TearDown(){
+    }
+};
 
-// TEST_F(LibftTestBonus, lstnew)
-// {
-//     strcpy(content, "42tokyo");
-//     test1 = ft_lstnew(content);
-//     EXPECT_STREQ(content, (char *)test1->content);
-//     EXPECT_EQ(NULL, test1->next);
-// }
+TEST_F(LibftTestBonus, lstnew)
+{
+    strcpy(content, "42tokyo");
+    test1 = ft_lstnew(content);
+    EXPECT_STREQ(content, (char *)test1->content);
+    EXPECT_EQ(NULL, test1->next);
+}
 
-// TEST_F(LibftTestBonus, lstadd_front)
+TEST_F(LibftTestBonus, lstadd_front)
+{
+    strcpy(content, "42tokyo");
+    test1 = ft_lstnew(content);
+    strcpy(content, "Cursus");
+    test2 = ft_lstnew(content);
+    ft_lstadd_front(&test1, test2);
+    EXPECT_STREQ(content, (char *)test1->content);
+    EXPECT_EQ(NULL, test1->next->next);
+}
+
+TEST_F(LibftTestBonus, lstsize)
+{
+    strcpy(content, "42tokyo");
+    test1 = ft_lstnew(content);
+    strcpy(content, "Cursus");
+    test2 = ft_lstnew(content);
+    ft_lstadd_front(&test1, test2);
+    EXPECT_EQ(2, ft_lstsize(test1));
+}
+
+// TODO
+// TEST_F(LibftTestBonus, lstlast)
 // {
 //     strcpy(content, "42tokyo");
 //     test1 = ft_lstnew(content);
 //     strcpy(content, "Cursus");
-//     test2 = ft_lstnew(content);
+//     test2 = ft_lstnew(content);    
 //     ft_lstadd_front(&test1, test2);
-//     EXPECT_STREQ(content, (char *)test1->content);
-//     EXPECT_EQ(NULL, test1->next->next);
-// }
-
-// TEST_F(LibftTestBonus, lstsize)
-// {
-//     strcpy(content, "42tokyo");
-//     test1 = ft_lstnew(content);
-//     strcpy(content, "Cursus");
-//     test2 = ft_lstnew(content);
-//     ft_lstadd_front(&test1, test2);
-//     EXPECT_EQ(2, ft_lstsize(test1));
-// }
-
-// // TODO
-// // TEST_F(LibftTestBonus, lstlast)
-// // {
-// //     strcpy(content, "42tokyo");
-// //     test1 = ft_lstnew(content);
-// //     strcpy(content, "Cursus");
-// //     test2 = ft_lstnew(content);    
-// //     ft_lstadd_front(&test1, test2);
-// //     EXPECT_STREQ("42tokyo", (char *)ft_lstlast(test1)->content);
-// //     EXPECT_EQ(NULL, ft_lstlast(test1)->next);
-// //     free(test1);
-// // }
-
-// TEST_F(LibftTestBonus, lstadd_back)
-// {
-//     strcpy(content, "42tokyo");
-//     test1 = ft_lstnew(content);
-//     strcpy(content, "Cursus");
-//     test2 = ft_lstnew(content);
-//     strcpy(content, "Piscine");
-//     test3 = ft_lstnew(content);
-//     ft_lstadd_back(&test1, test2);
-//     ft_lstadd_back(&test1, test3);
-//     EXPECT_STREQ(content, (char *)ft_lstlast(test1)->content);
+//     EXPECT_STREQ("42tokyo", (char *)ft_lstlast(test1)->content);
 //     EXPECT_EQ(NULL, ft_lstlast(test1)->next);
+//     free(test1);
 // }
+
+TEST_F(LibftTestBonus, lstadd_back)
+{
+    strcpy(content, "42tokyo");
+    test1 = ft_lstnew(content);
+    strcpy(content, "Cursus");
+    test2 = ft_lstnew(content);
+    strcpy(content, "Piscine");
+    test3 = ft_lstnew(content);
+    ft_lstadd_back(&test1, test2);
+    ft_lstadd_back(&test1, test3);
+    EXPECT_STREQ(content, (char *)ft_lstlast(test1)->content);
+    EXPECT_EQ(NULL, ft_lstlast(test1)->next);
+}

@@ -31,8 +31,4 @@ TEST_F(atoi_class, atoi) {
 	JUDGE_EQ(atoi, "+234:213");
 	JUDGE_EQ(atoi, "fasdataaf2131sfasdf");
 	LEAKS_CONFIRM
-	// testing::internal::CaptureStdout();
-	// system("leaks a.out");
-	// EXPECT_NE(std::string::npos, testing::internal::GetCapturedStdout().find(" 0 leaks for 0 total leaked bytes"));
-
 }

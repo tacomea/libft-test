@@ -5,6 +5,7 @@ protected:
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
+		LEAKS_CONFIRM
 	}
 };
 
