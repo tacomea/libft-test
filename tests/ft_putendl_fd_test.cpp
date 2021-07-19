@@ -1,4 +1,14 @@
-TEST_F(LibftTestPart2, putendl_fd)
+#include "tests.h"
+
+class putendl_fd_class : public ::testing::Test {
+protected:
+	virtual void SetUp(){
+	}
+	virtual void TearDown(){
+	}
+};
+
+TEST_F(putendl_fd_class, putendl_fd)
 {
 	strcpy(test, "42tokyo");
 	testing::internal::CaptureStdout();

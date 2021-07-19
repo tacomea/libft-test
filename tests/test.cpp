@@ -183,21 +183,6 @@ TEST_F(LibftTestPart1, strlcat)
     JUDGE_EQ_STR_3(strlcat, lib, test, "abcdefghijklmn", 10);
 }
 
-TEST_F(LibftTestPart1, toupper)
-{
-    JUDGE_EQ(toupper, 'a');
-    JUDGE_EQ(toupper, '0');
-    JUDGE_EQ(toupper, 'A');
-    JUDGE_EQ(toupper, 0x00);
-}
-
-TEST_F(LibftTestPart1, tolower)
-{
-    JUDGE_EQ(tolower, 'a');
-    JUDGE_EQ(tolower, '0');
-    JUDGE_EQ(tolower, 'A');
-    JUDGE_EQ(tolower, 0x00);
-}
 
 TEST_F(LibftTestPart1, strchr)
 {
@@ -258,39 +243,6 @@ TEST_F(LibftTestPart1, strnstr)
     JUDGE_EQ_STR_3(strnstr, str, str, "cursus", 0);
 }
 
-TEST_F(LibftTestPart1, atoi)
-{
-    JUDGE_EQ(atoi, "000000");
-    JUDGE_EQ(atoi, "  ");
-    JUDGE_EQ(atoi, "+42");
-    JUDGE_EQ(atoi, "2147483647");
-    JUDGE_EQ(atoi, "-2147483648");
-    JUDGE_EQ(atoi, "2147483648");
-    JUDGE_EQ(atoi, "-2147483649");
-    JUDGE_EQ(atoi, "-99999999999999999999999");
-    JUDGE_EQ(atoi, "99999999999999999999999");
-    JUDGE_EQ(atoi, "\t\n\v\f\r 42");
-    JUDGE_EQ(atoi, " ---42");
-    JUDGE_EQ(atoi, "-+42");
-    JUDGE_EQ(atoi, "+234:213");
-    JUDGE_EQ(atoi, "fasdataaf2131sfasdf");
-}
-
-TEST_F(LibftTestPart1, calloc)
-{
-    JUDGE_CALLOC(calloc, 0, sizeof(int));
-    JUDGE_CALLOC(calloc, 4, sizeof(int));
-    JUDGE_CALLOC(calloc, 20, sizeof(char));
-}
-
-TEST_F(LibftTestPart1, strdup)
-{
-    JUDGE_STR(strdup, "ABC");
-    JUDGE_STR(strdup, "");
-    JUDGE_STR(strdup, "       ");
-    JUDGE_STR(strdup, "abc\0defg");
-} 
-
 
 // --------------------------------------------------------------------
 // |                                                                   |        
@@ -308,15 +260,6 @@ protected:
     virtual void TearDown(){
     }
 };
-
-TEST_F(LibftTestPart2, substr)
-{
-    // EXPECT_STREQ("", ft_substr(NULL, 1, 1));
-    EXPECT_STREQ("", ft_substr("Lorem ipsum dolor sit amet,", 2, 0));
-    EXPECT_STREQ("", ft_substr("Lorem ipsum dolor sit amet,", 50, 0));
-    EXPECT_STREQ("rem i", ft_substr("Lorem ipsum dolor sit amet,", 2, 5));
-    EXPECT_STREQ("or sit amet,", ft_substr("Lorem ipsum dolor sit amet,", 15, 20));
-}
 
 
 // --------------------------------------------------------------------

@@ -2,6 +2,8 @@
 
 class split_class : public ::testing::Test {
 protected:
+	char **split;
+
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
