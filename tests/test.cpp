@@ -318,6 +318,92 @@ TEST_F(LibftTestPart2, substr)
     EXPECT_STREQ("or sit amet,", ft_substr("Lorem ipsum dolor sit amet,", 15, 20));
 }
 
+TEST_F(LibftTestPart2, strjoin)
+{
+    EXPECT_EQ(NULL, ft_strjoin(NULL, "42tokyo"));
+    EXPECT_EQ(NULL, ft_strjoin("42tokyo", NULL));
+    EXPECT_EQ(NULL, ft_strjoin(NULL, NULL));
+    EXPECT_STREQ("42tokyo", ft_strjoin("42", "tokyo"));
+    EXPECT_STREQ("Cursus", ft_strjoin("Cursus", ""));
+    EXPECT_STREQ("Cursus", ft_strjoin("", "Cursus"));
+}
+
+TEST_F(LibftTestPart2, strtrim)
+{
+    EXPECT_EQ(NULL, ft_strtrim(NULL, "42tokyo"));
+    EXPECT_EQ(NULL, ft_strtrim("42tokyo", NULL));
+    EXPECT_EQ(NULL, ft_strtrim(NULL, NULL));
+    EXPECT_STREQ("42tokyo", ft_strtrim("abc42tokyoabc", "abc"));
+    EXPECT_STREQ("abc Cursus ABC", ft_strtrim("    abc Cursus ABC   ", " "));
+}
+
+TEST_F(LibftTestPart2, split)
+{
+    split = ft_split("aaa42aatokyoaaa", 'a');
+    EXPECT_STREQ("42", split[0]);
+    EXPECT_STREQ("tokyo", split[1]);
+    split = ft_split(NULL, 'a');
+    EXPECT_EQ(NULL, split);
+}
+
+TEST_F(LibftTestPart2, itoa)
+{
+    EXPECT_STREQ("2147483647", ft_itoa(2147483647));
+    EXPECT_STREQ("-2147483648", ft_itoa(-2147483648));
+    EXPECT_STREQ("0", ft_itoa(0));
+}
+
+char	strmapi_func(unsigned int n, char c)
+{
+	c = c + n;
+	return (c);
+}
+
+TEST_F(LibftTestPart2, strmapi)
+{
+    EXPECT_STREQ("acegi", ft_strmapi("abcde", &strmapi_func));
+}
+
+void	striteri_func(unsigned int i, char *s)
+{
+	*s = *s + i;
+}
+
+TEST_F(LibftTestPart2, striteri)
+{
+    strcpy(test, "abcde");
+    ft_striteri(test, &striteri_func);
+    EXPECT_STREQ("acegi", test);
+}
+
+TEST_F(LibftTestPart2, putchar_fd)
+{
+    testing::internal::CaptureStdout();
+    ft_putchar_fd('a', 1);
+    EXPECT_STREQ("a", testing::internal::GetCapturedStdout().c_str());
+    testing::internal::CaptureStderr();
+    ft_putchar_fd('A', 2);
+    EXPECT_STREQ("A", testing::internal::GetCapturedStderr().c_str());
+}
+
+TEST_F(LibftTestPart2, putstr_fd)
+{
+    // char test[10];
+    strcpy(test, "42tokyo");
+
+    testing::internal::CaptureStdout();
+    ft_putstr_fd(test, 1);
+    EXPECT_STREQ("42tokyo", testing::internal::GetCapturedStdout().c_str());
+
+    strcpy(test, "Cursus");
+    testing::internal::CaptureStderr();
+    ft_putstr_fd(test, 2);
+    EXPECT_STREQ("Cursus", testing::internal::GetCapturedStderr().c_str());
+}
+
+
+
+
 
 // --------------------------------------------------------------------
 // |                                                                   |        

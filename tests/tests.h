@@ -13,6 +13,10 @@ extern "C" {
 #define JUDGE_EQ(name, val) \
     EXPECT_EQ(name(val), ft_ ## name(val)); \
 
+#define JUDGE_EQ_STR_3(name, lib, test, val1, val2) \
+    EXPECT_EQ(name(lib, val1, val2), ft_ ## name(test, val1, val2)); \
+    EXPECT_STREQ(lib, test);
+
 #define LEAKS_CONFIRM \
     testing::internal::CaptureStdout(); \
 	system("leaks a.out"); \
