@@ -23,13 +23,13 @@ endif
 
 $(MANDATORY):
 	gcc -c $(LIBFT_PATH)/ft_$@.c
-	g++ $(CFLAGS) $(UTILS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
+	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
 	@./a.out
 	@rm -f a.out ft_$@.o
 
 $(BONUS):
 	gcc -c $(LIBFT_PATH)/ft_$@.c
-	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
+	g++ $(CFLAGS) $(UTILS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
 	@./a.out
 	@rm -f a.out ft_$@.o
 
