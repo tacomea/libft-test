@@ -20,9 +20,10 @@ TEST_F(calloc_class, calloc) {
 	// make sure to check that ft_calloc only takes memory of specified size
 
 	testing::internal::CaptureStdout();
-//	system("leaks a.out | grep 'leaks for'");
 	system("leaks a.out");
-//	EXPECT_STREQ(" 0 leaks for 0 total leaked bytes.\n", strstr(testing::internal::GetCapturedStdout().c_str(), " 0 leaks for 0 total leaked bytes"));
 	EXPECT_NE(std::string::npos, testing::internal::GetCapturedStdout().find(" 0 leaks for 0 total leaked bytes"));
+	
+//	system("leaks a.out | grep 'leaks for'");
+//	EXPECT_STREQ(" 0 leaks for 0 total leaked bytes.\n", strstr(testing::internal::GetCapturedStdout().c_str(), " 0 leaks for 0 total leaked bytes"));
 //	std::cout << "leaks test result: \n\n" << leaks.find("leaks Report") << "\nend\n\n";
 }

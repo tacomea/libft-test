@@ -1,5 +1,7 @@
 MAIN_PATH	= /usr/local/src/googletest-release-1.11.0/googletest/src/gtest_main.cc
 GTEST_PATH	= /usr/local/src/gtest/gtest-all.cc
+IN_GUACAMOLE=TRUE
+
 
 LIBFT_PATH		= ..
 FT_HEADER_PATH	= .
@@ -16,14 +18,14 @@ CC				= gcc
 ifeq ($(IN_GUACAMOLE),TRUE)
 	MAIN_PATH	= googletest-release-1.11.0/googletest/src/gtest_main.cc
     GTEST_PATH	= gtest/gtest-all.cc
-    FT_HEADER_PATH = ..
+    # FT_HEADER_PATH = ..
 endif
 
 $(MANDATORY):
 	gcc -c $(LIBFT_PATH)/ft_$@.c
 	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
-	./a.out
-	rm -f a.out ft_$@.o
+	@./a.out
+	@rm -f a.out ft_$@.o
 
 init:
 	curl -OL 'https://github.com/google/googletest/archive/release-1.11.0.tar.gz'
