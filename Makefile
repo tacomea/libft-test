@@ -2,7 +2,7 @@ MAIN_PATH	= /usr/local/src/googletest-release-1.11.0/googletest/src/gtest_main.c
 GTEST_PATH	= /usr/local/src/gtest/gtest-all.cc
 IN_GUACAMOLE=TRUE
 
-
+UTILS			= $(addprefix utils/, sigsegv.cpp color.cpp check.cpp leaks.cpp)
 LIBFT_PATH		= ..
 FT_HEADER_PATH	= .
 HEADER_PATH		= ./tests
@@ -23,7 +23,7 @@ endif
 
 $(MANDATORY):
 	gcc -c $(LIBFT_PATH)/ft_$@.c
-	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
+	g++ $(CFLAGS) $(UTILS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
 	@./a.out
 	@rm -f a.out ft_$@.o
 
