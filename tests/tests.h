@@ -4,7 +4,7 @@
 #include "gtest/gtest.h"
 
 extern "C" {
-#include "libft.h"
+#include "../libft.h"
 #include <climits>
 }
 

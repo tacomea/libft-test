@@ -27,6 +27,12 @@ $(MANDATORY):
 	@./a.out
 	@rm -f a.out ft_$@.o
 
+$(BONUS):
+	gcc -c $(LIBFT_PATH)/ft_$@.c
+	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -I$(FT_HEADER_PATH) ft_$@.o
+	@./a.out
+	@rm -f a.out ft_$@.o
+
 init:
 	curl -OL 'https://github.com/google/googletest/archive/release-1.11.0.tar.gz'
 	tar zxvf release-1.11.0.tar.gz
