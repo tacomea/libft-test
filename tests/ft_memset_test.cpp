@@ -2,6 +2,8 @@
 
 class memset_class : public ::testing::Test {
 protected:
+	char lib[STRSIZE];
+	char test[STRSIZE];
 
 	virtual void SetUp(){
 	}
