@@ -1,6 +1,6 @@
 #include "tests.h"
 
-class toupper_class : public ::testing::Test {
+class tolower_class : public ::testing::Test {
 protected:
 
 	virtual void SetUp(){
@@ -9,7 +9,7 @@ protected:
 	}
 };
 
-TEST_F(LibftTestPart1, tolower)
+TEST_F(tolower_class, tolower)
 {
 	JUDGE_EQ(tolower, 'a');
 	JUDGE_EQ(tolower, '0');

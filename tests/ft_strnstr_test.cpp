@@ -2,6 +2,8 @@
 
 class strnstr_back_class : public ::testing::Test {
 protected:
+	char str[STRSIZE];
+
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){

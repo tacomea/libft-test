@@ -2,6 +2,8 @@
 
 class putstr_fd_class : public ::testing::Test {
 protected:
+	char test[STRSIZE];
+
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){

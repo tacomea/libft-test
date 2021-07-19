@@ -15,7 +15,7 @@ TEST_F(calloc_class, calloc) {
 	char p2[] = {0,0,0,0,0,0};
 	// test1
 	EXPECT_EQ(0, memcmp(p1, p2, 6));
-
+	free(p1);
 	// test2
 	// make sure to check that ft_calloc only takes memory of specified size
 	LEAKS_CONFIRM

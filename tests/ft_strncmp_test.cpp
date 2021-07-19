@@ -2,6 +2,8 @@
 
 class strncmp_front_class : public ::testing::Test {
 protected:
+	char test[STRSIZE];
+
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
