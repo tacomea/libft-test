@@ -2,7 +2,7 @@ MAIN_PATH	= /usr/local/src/googletest-release-1.11.0/googletest/src/gtest_main.c
 GTEST_PATH	= /usr/local/src/gtest/gtest-all.cc
 IN_GUACAMOLE=TRUE
 
-UTILS			= $(addprefix utils/, sigsegv.cpp color.cpp check.cpp leaks.cpp)
+UTILS			= $(addprefix utils/, lstnew.c lstadd_front.c lstsize.c lstlast.c lstadd_back.c lstdelone.c lstclear.c lstiter.c lstmap.c)
 LIBFT_PATH		= ..
 FT_HEADER_PATH	= .
 HEADER_PATH		= ./tests
