@@ -243,26 +243,8 @@ TEST_F(LibftTestPart1, strnstr)
     JUDGE_EQ_STR_3(strnstr, str, str, "cursus", 0);
 }
 
-
 // --------------------------------------------------------------------
-// |                                                                   |        
-// |                           Part 2                                  |
 // |                                                                   |
-// --------------------------------------------------------------------
-
-class LibftTestPart2 : public ::testing::Test {
-protected:
-    char **split;
-    char test[BUFSIZ];
-
-    virtual void SetUp(){
-    }
-    virtual void TearDown(){
-    }
-};
-
-// --------------------------------------------------------------------
-// |                                                                   |        
 // |                          Bonus Part                               |
 // |                                                                   |
 // --------------------------------------------------------------------
