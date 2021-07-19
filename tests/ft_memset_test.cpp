@@ -6,6 +6,8 @@ protected:
 	char test[STRSIZE];
 
 	virtual void SetUp(){
+		strcpy(lib, "0123456789");
+        strcpy(test, "0123456789");
 	}
 	virtual void TearDown(){
 	}
