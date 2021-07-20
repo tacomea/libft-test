@@ -66,7 +66,7 @@ $(MANDATORY): mstart
 	@./a.out
 	@rm -f a.out ft_$@.o
 
-$(BONUS):
+$(BONUS): bstart
 	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -L$(LIBFT_PATH) -lft
 	@./a.out
 	@rm -f a.out ft_$@.o
@@ -79,13 +79,16 @@ init:
 	python googletest-release-1.11.0/googletest/scripts/fuse_gtest_files.py ./
 
 mstart:
-	@make -C $(LIBFT_PATH)
+	make -C $(LIBFT_PATH)
+
+bstart:
+	make bonus -C $(LIBFT_PATH)
 
 clean:
 	make clean -C $(LIBFT_PATH)
 	rm -f $(OBJS) $(B_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	make fclean -C $(LIBFT_PATH)
 
 .PHONY: all init

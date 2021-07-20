@@ -5,7 +5,6 @@ protected:
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
-		LEAKS_CONFIRM
 	}
 };
 
@@ -29,10 +28,10 @@ TEST_F(itoa_class, itoa) {
 
 	s = ft_itoa(-2147483648);
 	EXPECT_EQ(0, strcmp(s, "-2147483648"));
-	// free(s);
-
+//	 free(s);
 
 	s = ft_itoa(0);
 	EXPECT_EQ(0, strcmp(s, "0"));
-	// free(s);
+//	free(s);
+	LEAKS_CONFIRM
 }
