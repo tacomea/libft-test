@@ -11,14 +11,8 @@ protected:
 
 TEST_F(lstdelone_class, lstdelone) {
 	t_list  *test1;
-	t_list  *test2;
-	char    *content = (char *)malloc(8);
-	for (int i = 0; i < 8; i++) {
-		content[i] = i + '0';
-	}
 
-
-	test1 = ft_lstnew(content);
+	test1 = ft_lstnew(malloc(8));
 	ft_lstdelone(test1, free);
 
 }

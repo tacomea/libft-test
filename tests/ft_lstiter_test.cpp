@@ -8,28 +8,27 @@ protected:
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
-		LEAKS_CONFIRM
 	}
 };
 
 void	lstiter_func(void *content)
 {
-	char	*str = (char *)content;
+	unsigned char	*str = (unsigned char *)content;
 
 	while (*str)
 	{
 		if ('a' <= *str && *str <= 'z')
-			*str = 'A' + (*str = 'a');
+			*str = 'A' + (*str - 'a');
 		str++;
 	}
 }
 
 TEST_F(lstiter_class, lstiter) {
-    test1 = ft_lstnew((void *)"42tokyo");
-    test2 = ft_lstnew((void *)"Cursus");    
-    test3 = ft_lstnew((void *)"  hoge -- foo\t++ 3");    
-    ft_lstadd_back(&test1, test2);
-    ft_lstadd_back(&test1, test3);
+	test1 = ft_lstnew(strdup("42tokyo"));
+	test2 = ft_lstnew(strdup("Cursus"));
+	test3 = ft_lstnew(strdup("  hoge -- foo\t++ 3"));
+	ft_lstadd_back(&test1, test2);
+	ft_lstadd_back(&test1, test3);
 	ft_lstiter(test1, &lstiter_func);
     EXPECT_STREQ("42TOKYO", (char *)test1->content);
     EXPECT_STREQ("CURSUS", (char *)test1->next->content);
