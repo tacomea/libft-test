@@ -4,7 +4,6 @@ class lstlast_class : public ::testing::Test {
 protected:
 	t_list  *test1;
     t_list  *test2;
-    char    content[STRSIZE];
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
