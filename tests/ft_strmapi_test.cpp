@@ -18,3 +18,9 @@ TEST_F(strmapi_class, strmapi)
 {
 	EXPECT_STREQ("acegi", ft_strmapi("abcde", &strmapi_func));
 }
+
+TEST_F(strmapi_class, error)
+{
+	EXPECT_EQ(NULL, ft_strmapi("abcde", NULL));
+	EXPECT_EQ(NULL, ft_strmapi(NULL, &strmapi_func));
+}

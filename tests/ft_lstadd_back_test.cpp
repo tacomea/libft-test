@@ -5,7 +5,6 @@ protected:
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
-		LEAKS_CONFIRM
 	}
 };
 
@@ -25,4 +24,16 @@ TEST_F(lstadd_back_class, lstadd_back) {
     ft_lstadd_back(&test1, test3);
     EXPECT_STREQ(content, (char *)ft_lstlast(test1)->content);
     EXPECT_EQ(NULL, ft_lstlast(test1)->next);
+	LEAKS_CONFIRM
+}
+
+TEST_F(lstadd_back_class, error) {
+	t_list  *test1;
+	char    content[STRSIZE];
+
+	strcpy(content, "42tokyo");
+	test1 = ft_lstnew(content);
+	ft_lstadd_back(&test1, NULL);
+	EXPECT_STREQ(content, (char *)ft_lstlast(test1)->content);
+	ft_lstadd_back(NULL, test1);
 }
