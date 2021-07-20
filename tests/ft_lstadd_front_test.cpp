@@ -12,14 +12,11 @@ protected:
 TEST_F(lstadd_front_class, lstadd_front) {
 	t_list  *test1;
 	t_list  *test2;
-	char    content[STRSIZE];
 
 
-	strcpy(content, "42tokyo");
-    test1 = ft_lstnew(content);
-    strcpy(content, "Cursus");
-    test2 = ft_lstnew(content);
+    test1 = ft_lstnew((void *)"42tokyo");
+    test2 = ft_lstnew((void *)"Cursus");
     ft_lstadd_front(&test1, test2);
-    EXPECT_STREQ(content, (char *)test1->content);
+    EXPECT_STREQ("Cursus", (char *)test1->content);
     EXPECT_EQ(NULL, test1->next->next);
 }
