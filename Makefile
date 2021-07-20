@@ -56,7 +56,7 @@ m: mstart
 	@./a.out
 	@rm -f a.out *.o
 
-b: mstart
+b: bstart
 	g++ $(CFLAGS) $(TEST_B_SRCS) $(MAIN_PATH) $(GTEST_PATH) -I. -L$(LIBFT_PATH) -lft
 	@./a.out
 	@rm -f a.out *.o
