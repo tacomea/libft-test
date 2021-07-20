@@ -16,12 +16,13 @@ protected:
 void	*lstiter_func(void *content)
 {
 	char	*str = (char *)content;
+	int		i = 0;
 
-	while (*str)
+	while (str[i])
 	{
-		if ('a' <= *str && *str <= 'z')
-			*str = 'A' + (*str - 'a');
-		str++;
+		if ('a' <= str[i] && str[i] <= 'z')
+			str[i] = 'A' + (str[i] - 'a');
+		i++;
 	}
 	return ((void *)str);
 }
