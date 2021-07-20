@@ -15,7 +15,7 @@ protected:
 
 void	*lstiter_func(void *content)
 {
-	unsigned char	*str = (unsigned char *)content;
+	char	*str = (char *)content;
 
 	while (*str)
 	{
@@ -23,6 +23,7 @@ void	*lstiter_func(void *content)
 			*str = 'A' + (*str - 'a');
 		str++;
 	}
+	return ((void *)str);
 }
 
 TEST_F(lstmap_class, lstmap) {
@@ -31,8 +32,9 @@ TEST_F(lstmap_class, lstmap) {
     test3 = ft_lstnew(strdup("  hoge -- foo\t++ 3"));
     ft_lstadd_back(&test1, test2);
     ft_lstadd_back(&test1, test3);
-	res = ft_lstmap(test1, )
-    EXPECT_STREQ("42tokyo", (char *)ft_lstlast(test1)->content);
-    EXPECT_EQ(NULL, ft_lstlast(test1)->next);
+	res = ft_lstmap(test1, &lstiter_func, free);
+	EXPECT_STREQ("42TOKYO", (char *)res->content);
+    EXPECT_STREQ("CURSUS", (char *)res->next->content);
+    EXPECT_STREQ("  HOGE -- FOO\t++ 3", (char *)res->next->next->content);
 }
 
