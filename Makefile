@@ -52,22 +52,22 @@ ifeq ($(IN_GUACAMOLE),TRUE)
 endif
 
 m: mstart
-	g++ $(CFLAGS) $(TEST_SRCS) $(MAIN_PATH) $(GTEST_PATH) -L$(LIBFT_PATH) -lft
+	g++ $(CFLAGS) $(TEST_SRCS) $(MAIN_PATH) $(GTEST_PATH) -I. -L$(LIBFT_PATH) -lft
 	@./a.out
 	@rm -f a.out *.o
 
 b: mstart
-	g++ $(CFLAGS) $(TEST_B_SRCS) $(MAIN_PATH) $(GTEST_PATH) -L$(LIBFT_PATH) -lft
+	g++ $(CFLAGS) $(TEST_B_SRCS) $(MAIN_PATH) $(GTEST_PATH) -I. -L$(LIBFT_PATH) -lft
 	@./a.out
 	@rm -f a.out *.o
 
 $(MANDATORY): mstart
-	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -L$(LIBFT_PATH) -lft
+	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) -I. $(GTEST_PATH) -L$(LIBFT_PATH) -lft
 	@./a.out
 	@rm -f a.out ft_$@.o
 
 $(BONUS): bstart
-	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) $(GTEST_PATH) -L$(LIBFT_PATH) -lft
+	g++ $(CFLAGS) $(TESTS_PATH)ft_$@_test.cpp $(MAIN_PATH) -I. $(GTEST_PATH) -L$(LIBFT_PATH) -lft
 	@./a.out
 	@rm -f a.out ft_$@.o
 

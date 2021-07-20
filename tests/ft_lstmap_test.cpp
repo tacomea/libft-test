@@ -9,11 +9,10 @@ protected:
 	virtual void SetUp(){
 	}
 	virtual void TearDown(){
-		LEAKS_CONFIRM
 	}
 };
 
-void	*lstiter_func(void *content)
+void	*lstmap_func(void *content)
 {
 	char	*str = (char *)content;
 	int		i = 0;
@@ -33,9 +32,14 @@ TEST_F(lstmap_class, lstmap) {
     test3 = ft_lstnew(strdup("  hoge -- foo\t++ 3"));
     ft_lstadd_back(&test1, test2);
     ft_lstadd_back(&test1, test3);
-	res = ft_lstmap(test1, &lstiter_func, free);
+	res = ft_lstmap(test1, &lstmap_func, free);
 	EXPECT_STREQ("42TOKYO", (char *)res->content);
     EXPECT_STREQ("CURSUS", (char *)res->next->content);
     EXPECT_STREQ("  HOGE -- FOO\t++ 3", (char *)res->next->next->content);
+    ft_lstclear(&test1, free);
+//    ft_lstclear(&test2, free);
+//    ft_lstclear(&test3, free);
+    system("leaks a.out");
+	LEAKS_CONFIRM
 }
 
